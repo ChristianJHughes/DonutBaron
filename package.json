@@ -1,0 +1,28 @@
+{
+  "name": "donutbaron",
+  "version": "0.0.1",
+  "description": "Website that keeps track of donut usage by donut users.",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "sqlite3": "^3.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristianJHughes/DonutBaron.git"
+  },
+  "keywords": [
+    "donuts"
+  ],
+  "author": "Adam Seiwert, Christian Hughes, Austin Fangman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChristianJHughes/DonutBaron/issues"
+  },
+  "homepage": "https://github.com/ChristianJHughes/DonutBaron#readme"
+}
