@@ -10,6 +10,11 @@ app.use(express.static('public'));
 app.get('/', function(req, res) {
     res.render('index');
 });
+
+//Delete this later, just here for testing currently
+app.get('/login', function(req, res) {
+    res.render('login');
+});
     
 app.listen(80, () => {
     console.log('Listening on port 80...');

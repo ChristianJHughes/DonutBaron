@@ -1,8 +1,3 @@
-/*!
- * Start Bootstrap - Freelancer Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
 
 body {
     overflow-x: hidden;
@@ -99,13 +94,8 @@ header .intro-text .name {
     display: block;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 2em;
-    font-weight: 700;
-}
-
-header .intro-text .skills {
-    font-size: 1.25em;
-    font-weight: 300;
+    font-size: 1em;
+    font-weight: 500;
 }
 
 @media(min-width:768px) {
@@ -115,11 +105,7 @@ header .intro-text .skills {
     }
 
     header .intro-text .name {
-        font-size: 4.75em;
-    }
-
-    header .intro-text .skills {
-        font-size: 1.75em;
+        font-size: 2.75em;
     }
 }
 
@@ -136,6 +122,15 @@ header .intro-text .skills {
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
+    }
+    
+    .navbar-fixed-top .navbar-brand-center {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+        margin: auto;
+        width: 60%;
     }
 
     .navbar-fixed-top.navbar-shrink {
