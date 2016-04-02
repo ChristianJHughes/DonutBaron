@@ -42,7 +42,7 @@ db.serialize(function() {
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
       + "VALUES ('Adam Seiwert', '6208754366', 'seiwerta@ksu.edu', 'seiwerta', 'password2', 'KSU', '7', '70', '0', '0', '1')");
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
-      + "VALUES ('Austin Fangman', '9139081592', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '2', '20', '1', '0', '1')");
+      + "VALUES ('Austin Fangman', '8163510409', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '2', '20', '1', '0', '1')");
 
   // Insert the users into the users list.
   db.run("INSERT INTO userList (date, userID) VALUES ('2016-04-02', 1)");
@@ -50,5 +50,5 @@ db.serialize(function() {
   db.run("INSERT INTO userList (date, userID) VALUES ('2016-04-16', 3)");
 
   // Make a sample comment.
-  db.run("INSERT INTO comments (comment_content, username) VALUES ('Wow! I'm the first to comment.', 'cjhughes255')");
+  db.run("INSERT INTO comments (comment_content, username) VALUES ('A sample comment', 'cjhughes255')");
 });
