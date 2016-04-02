@@ -6,7 +6,7 @@ app.set('view engine', 'ejs');
 
 // Serve static files
 app.use(express.static('public'));
-
+//app.use(express.static('bower_components'));
 
 // Wiki Get Routes routes
 var homepage = require('./endpoints/homepage.js');
