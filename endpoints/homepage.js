@@ -19,13 +19,19 @@ class Donut_Data {
   //   });
   // }
 
-  getDonutBaron(req, res) {
-    var page = db.get('SELECT * FROM users WHERE is_donut_baron=?', 1, function(err, donutBaron) {
+  getHomepageData(req, res) {
+    db.get('SELECT * FROM users WHERE is_donut_baron=?', 1, function(err, donutBaron) {
       if (err) {
         console.error(err);
         return res.sendStatus(500);
       }
-      res.render('index', { donutBaron: donutBaron } );
+      db.all('SELECT * FROM upcomingList', function(err, upcomingUsers) {
+        if (err) {
+          console.error(err);
+          return res.sendStatus(500);
+        };
+        res.render('index', { donutBaron: donutBaron, upcomingUsers: upcomingUsers } );
+      });
     });
   }
 
