@@ -456,3 +456,27 @@ footer .footer-below {
 float: none;
 margin: 0 auto;
 }
+
+.switch6 {  max-width: 17em;  margin: 0 auto; border:1px solid #FFFFFF;}
+.switch6-light > span, .switch-toggle > span {  color: #FFFFFF; }
+.switch6-light span span, .switch6-light label, .switch-toggle span span, .switch-toggle label {  color: #FFFFFF; }
+
+.switch-toggle a, 
+.switch6-light span span { display: none; }
+
+.switch6-light { display: block; height: 30px; position: relative; overflow: visible; padding: 0px; margin-left:0px; }
+.switch6-light * { box-sizing: border-box; }
+.switch6-light a { display: block; transition: all 0.3s ease-out 0s; }
+
+.switch6-light label, 
+.switch6-light > span { line-height: 30px; vertical-align: middle;}
+
+.switch6-light label {font-weight: 700; margin-bottom: px; max-width: 100%;}
+
+.switch6-light input:focus ~ a, .switch6-light input:focus + label { outline: 1px dotted rgb(136, 136, 136); }
+.switch6-light input { position: absolute; opacity: 0; z-index: 5; }
+.switch6-light input:checked ~ a { right: 0%; }
+.switch6-light > span { position: absolute; left: -100px; width: 100%; margin: 0px; padding-right: 100px; text-align: left; }
+.switch6-light > span span { position: absolute; top: 0px; left: 0px; z-index: 5; display: block; width: 50%; margin-left: 100px; text-align: center; }
+.switch6-light > span span:last-child { left: 50%; }
+.switch6-light a { position: absolute; right: 50%; top: 0px; z-index: 4; display: block; width: 50%; height: 100%; padding: 0px; }

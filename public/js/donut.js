@@ -33,6 +33,7 @@ $(function() {
     $('#rating').raty({
         path: 'img/rateIcons',
         starOff: 'circle.png',
-        starOn: 'donut.png'
+        starOn: 'donut.png',
+        canel: true
     });
 });
