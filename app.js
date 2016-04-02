@@ -18,6 +18,11 @@ app.get('/login', function(req, res) {
     res.render('login');
 });
 
+//Delete this later, just here for testing currently
+app.get('/register', function(req, res) {
+    res.render('register');
+});
+
 app.listen(8080, () => {
     console.log('Listening on port 8080...');
 });

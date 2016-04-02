@@ -173,6 +173,9 @@ section h2 {
     margin: 0;
     font-size: 3em;
 }
+section h3 {
+    font-size: 6em;
+}
 
 section.success {
     color: #fff;
@@ -456,3 +459,49 @@ footer .footer-below {
 float: none;
 margin: 0 auto;
 }
+
+/* Credit to bootsnipp.com for the css for the color graph */
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #f7fdca;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #2c3e50, #F752A1 12.5%, #f7fdca 12.5%, #18bc9c 25%, #fecf71 25%, #fecf71 37.5%, #5B3A8E 37.5%, #f0776c 50%, #db9dbe 50%, #FFDB00 62.5%, #c49cde 62.5%, #c49cde 75%, #377AC0 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #2c3e50, #F752A1 12.5% #f7fdca 12.5%, #18bc9c 25%, #fecf71 25%, #fecf71 37.5%, #5B3A8E 37.5%, #f0776c 50%, #db9dbe 50%, #FFDB00 62.5%, #c49cde 62.5%, #c49cde 75%, #377AC0 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #2c3e50, #F752A1 12.5%, #f7fdca 12.5%, #18bc9c 25%, #fecf71 25%, #fecf71 37.5%, #5B3A8E 37.5%, #f0776c 50%, #db9dbe 50%, #FFDB00 62.5%, #c49cde 62.5%, #c49cde 75%, #377AC0 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #2c3e50, #F752A1 12.5%, #f7fdca 12.5%, #18bc9c 25%, #fecf71 25%, #fecf71 37.5%, #5B3A8E 37.5%, #f0776c 50%, #db9dbe 50%, #FFDB00 62.5%, #c49cde 62.5%, #c49cde 75%, #377AC0 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
+.btn-secondary {
+  color: #ffffff;
+  background-color: #18bc9c;
+  border-color: #2c3e50;
+  border-width: 10px;
+  border-top-color: #e4B;
+  border-bottom-color: #e4b;
+}
+.btn-secondary:focus,
+.btn-secondary.focus {
+  color: #ffffff;
+  background-color: #18bc9c;
+  border-color: #2c3e50;
+}
+.btn-secondary:hover {
+  color: #ffffff;
+  background-color: #2c3e50;
+  border-color: #18bc9c;
+}
+.btn-secondary:active,
+.btn-secondary.active,
+.open > .dropdown-toggle.btn-secondary {
+  color: #ffffff;
+  background-color: #1a242f;
+  border-color: #161f29;
+}
+he1{
+    font-size: 3em;
+    text-align: center;
+    text-align-last: center;
+}
+
+he2
