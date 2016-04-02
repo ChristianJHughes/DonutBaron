@@ -12,14 +12,21 @@ db.serialize(function() {
   // email_address TEXT -- Email address as text. MAKE toLowerCase().
   // username_text TEXT -- Username (can be independent of realname). Probably shouldn't contain spaces.
   // password TEXT -- Encrypted password as text.
-  // donut_quality_rating REAL -- 
-  // donut_reliability_rating REAL --
-  // has_rated_this_week INTEGER --
-  // is_donut_baron INTEGER --
-  // is_admin INTEGER) --
-  db.run("CREATE TABLE users (userID INTEGER PRIMARY KEY, real_name TEXT, phone_number TEXT, email_address TEXT, username_text TEXT, password TEXT, donut_quality_rating REAL, donut_reliability_rating REAL, has_rated_this_week INTEGER, is_donut_baron INTEGER, is_admin INTEGER)");
-  // Create the comments table.
-  db.run("CREATE TABLE comments (commentID INTEGER PRIMARY KEY, comment TEXT, associated_page INTEGER, FOREIGN KEY(associated_page) REFERENCES pages(pageID))");
+  // organization TEXT -- Name of the organization that the user is a part of.
+  // donut_quality_rating REAL -- Quality of the donuts on a scale of 1 to 10 (floating point number).
+  // donut_reliability_rating REAL -- Reliability of the user, as a real number from 0 to 100 (expressed as a precentage).
+  // has_rated_this_week INTEGER -- Bool, 0 if false or 1 if true. Has this user rated the donut baron for the week?
+  // is_donut_baron INTEGER -- Bool, 0 if false or 1 if true. Has the user rated this week's donut baron?
+  // is_admin INTEGER) -- Bool, 0 if false or 1 if true. Is the user an admin?
+  db.run("CREATE TABLE users (userID INTEGER PRIMARY KEY, real_name TEXT, phone_number TEXT, email_address TEXT, username_text TEXT, password TEXT, organization TEXT, donut_quality_rating REAL, donut_reliability_rating REAL, has_rated_this_week INTEGER, is_donut_baron INTEGER, is_admin INTEGER)");
+
+  // Create the userList table. It Holds a chronooglical list of users, with the dates in which they will become the donut baron.
+  //
+  // listID INTEGER PRIMARY KEY -- Primary key for the table. Probably arbitrary.
+  // date TEXT -- Date in which the user will become the donut baron, expressed as 'YYYY-MM-DD'.
+  // userID INTEGER -- The userID of the assocated user. References users table.
+  // FOREIGN KEY(userID) REFERENCES users(userID)) -- See above.
+  db.run("CREATE TABLE userList (listID INTEGER PRIMARY KEY, date TEXT, userID INTEGER, FOREIGN KEY(userID) REFERENCES users(userID))");
 
   db.run("CREATE TABLE users (userID INTEGER PRIMARY KEY, username TEXT, password TEXT, isBanned INTEGER, isAdmin INTEGER)");
   // Add two sample posts.
