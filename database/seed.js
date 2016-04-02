@@ -28,7 +28,14 @@ db.serialize(function() {
   // FOREIGN KEY(userID) REFERENCES users(userID)) -- See above.
   db.run("CREATE TABLE userList (listID INTEGER PRIMARY KEY, date TEXT, userID INTEGER, FOREIGN KEY(userID) REFERENCES users(userID))");
 
-  db.run("CREATE TABLE users (userID INTEGER PRIMARY KEY, username TEXT, password TEXT, isBanned INTEGER, isAdmin INTEGER)");
+  // Create the comments table.
+  //
+  // commentID INTEGER PRIMARY KEY -- Arbitary primary key integer for each comment.
+  // comment_content TEXT -- The actual textual content of each comment.
+  // username TEXT - The username of the user that made the comment.
+  // time_stamp INTEGER -- The time that the comment was posted. Format TBD.
+  db.run("CREATE TABLE comments (commentID INTEGER PRIMARY KEY, comment_content TEXT, username TEXT, time_stamp INTEGER, isAdmin INTEGER)");
+
   // Add two sample posts.
   db.run("INSERT INTO pages (page_name, main_content_markdown) VALUES ('CIS 526 Information', 'CIS 526 is the *greatest class that has ever been taught*.')");
   db.run("INSERT INTO pages (page_name, main_content_markdown) VALUES ('Dogs', '**Dogs are the best.** Do you have a dog? Well you should. All hail the glow cloud.')");
