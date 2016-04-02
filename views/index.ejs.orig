@@ -81,8 +81,13 @@
                 <div class="col-lg-12">
                     <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
-                        <span class="name">This week's Donut Dollie Is:</span><br />
+<<<<<<< HEAD
+                        <span class="name">This week's Donut Baron Is:</span><br />
+                        <span class="name"><%= donutBaron.real_name %></span>
+=======
+                        <span class="name">This weeks Donut Baron Is:</span><br />
                         <span class="name" style="color: black"><%= donutBaron.real_name %></span>
+>>>>>>> 3294b8d0ca7b66bf1a8c2979c3575791f1ac017d
                     </div>
                 </div>
             </div>
