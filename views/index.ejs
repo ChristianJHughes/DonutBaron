@@ -56,7 +56,16 @@
                         <a href="#ranks">Baron Rankings</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#user">USERNAME HERE</a>
+                        <!-- <a href="#user" style="border: 1px dashed white; color: grey;">Logout, <%= donutBaron.real_name %></a> -->
+                        <div class="dropdown">
+                          <button class="btn btn-default dropdown-toggle" style="padding-top: 17px; padding-bottom: 17px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Hello, <%= donutBaron.real_name %>
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Logout</a></li>
+                          </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -73,7 +82,7 @@
                     <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
                         <span class="name">This weeks Donut Baron Is:</span><br />
-                        <span class="name"><%= donutBaron.real_name %></span>
+                        <span class="name" style="color: black"><%= donutBaron.real_name %></span>
                     </div>
                 </div>
             </div>
