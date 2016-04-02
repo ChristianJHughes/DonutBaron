@@ -26,7 +26,7 @@ db.serialize(function() {
   // date TEXT -- Date in which the user will become the donut baron, expressed as 'YYYY-MM-DD'.
   // userID INTEGER -- The userID of the assocated user. References users table.
   // FOREIGN KEY(userID) REFERENCES users(userID)) -- See above.
-  db.run("CREATE TABLE userList (listID INTEGER PRIMARY KEY, date TEXT, userID INTEGER, FOREIGN KEY(userID) REFERENCES users(userID))");
+  db.run("CREATE TABLE upcomingList (listID INTEGER PRIMARY KEY, date TEXT, real_name TEXT, userID INTEGER, FOREIGN KEY(userID) REFERENCES users(userID))");
 
   // Create the comments table.
   //
@@ -45,9 +45,8 @@ db.serialize(function() {
       + "VALUES ('Austin Fangman', '8163510409', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '2', '20', '1', '0', '1')");
 
   // Insert the users into the users list.
-  db.run("INSERT INTO userList (date, userID) VALUES ('2016-04-02', 1)");
-  db.run("INSERT INTO userList (date, userID) VALUES ('2016-04-09', 2)");
-  db.run("INSERT INTO userList (date, userID) VALUES ('2016-04-16', 3)");
+  db.run("INSERT INTO upcomingList (date, userID, real_name) VALUES ('2016-04-09', 2, 'Adam Seiwert')");
+  db.run("INSERT INTO upcomingList (date, userID, real_name) VALUES ('2016-04-16', 3, 'Austin Fangman')");
 
   // Make a sample comment.
   db.run("INSERT INTO comments (comment_content, username) VALUES ('A sample comment', 'cjhughes255')");
