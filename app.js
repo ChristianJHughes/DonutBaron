@@ -13,8 +13,8 @@ app.get('/', function(req, res) {
 
 // Wiki Get Routes routes
 var homepage = require('./endpoints/homepage.js');
-app.get('/index', homepage.getDonutBaron);
-app.get('/', homepage.getDonutBaron);
+app.get('/index', homepage.getHomepageData);
+app.get('/', homepage.getHomepageData);
 
 //Delete this later, just here for testing currently
 app.get('/login', function(req, res) {

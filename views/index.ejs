@@ -99,28 +99,18 @@
                             </tr>
                         </thead>
                         <tbody> <!-- Dynamically this section -->
+                          <% upcomingUsers.forEach(function(user) { %>
                             <tr>
-                                <td>Bob Smith</td>
-                                <td>2-25-2016</td>
+                              <td>
+                            <%= user.real_name %>
+                            </td>
+                            <td>
+                              <%= user.date %>
+                            </td>
                             </tr>
-                            <tr>
-                                <td>Bob Smith</td>
-                                <td>2-25-2016</td>
-                            </tr>
-                            <tr>
-                                <td>Bob Smith</td>
-                                <td>2-25-2016</td>
-                            </tr>
-                            <tr>
-                                <td>Bob Smith</td>
-                                <td>2-25-2016</td>
-                            </tr>
-                            <tr>
-                                <td>Bob Smith</td>
-                                <td>2-25-2016</td>
-                            </tr>
+                          <% }); %>
                         </tbody>
-                    </table> 
+                    </table>
                 </div>
             </div>
         </div>
