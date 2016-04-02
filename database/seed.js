@@ -34,7 +34,7 @@ db.serialize(function() {
   // comment_content TEXT -- The actual textual content of each comment.
   // username TEXT - The username of the user that made the comment.
   // time_stamp INTEGER -- The time that the comment was posted. Format TBD.
-  db.run("CREATE TABLE comments (commentID INTEGER PRIMARY KEY, comment_content TEXT, username TEXT, time_stamp INTEGER, isAdmin INTEGER)");
+  db.run("CREATE TABLE comments (commentID INTEGER PRIMARY KEY, comment_content TEXT, username TEXT, time_stamp INTEGER)");
 
   // Add three sample users.
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
@@ -44,16 +44,11 @@ db.serialize(function() {
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
       + "VALUES ('Austin Fangman', '9139081592', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '2', '20', '1', '0', '1')");
 
-       // Give each of those sample posts two comments.
-  db.run("INSERT INTO comments (comment, associated_page) VALUES ('LOL this wiki is incredible!', 1)");
-  db.run("INSERT INTO comments (comment, associated_page) VALUES ('This wiki is terrible, it needs major edits!', 1)");
-  db.run("INSERT INTO comments (comment, associated_page) VALUES ('Who wrote this garbage?', 2)");
-  db.run("INSERT INTO comments (comment, associated_page) VALUES ('This is awful, I am quiting the Internet.', 2)");
+  // Insert the users into the users list.
+  db.run("INSERT INTO userList (date, userID) VALUES ('2016-04-02', 1)");
+  db.run("INSERT INTO userList (date, userID) VALUES ('2016-04-09', 2)");
+  db.run("INSERT INTO userList (date, userID) VALUES ('2016-04-16', 3)");
 
-  //Create some users (there will be no way to add additional users in the inital application).
-  db.run("INSERT INTO users (username, password, isBanned, isAdmin) VALUES ('admin1', '0000', 0, 1)");
-  db.run("INSERT INTO users (username, password, isBanned, isAdmin) VALUES ('admin2', '0000', 0, 1)");
-  db.run("INSERT INTO users (username, password, isBanned, isAdmin) VALUES ('bob', '1111', 0, 0)");
-  db.run("INSERT INTO users (username, password, isBanned, isAdmin) VALUES ('christian', '1111', 0, 0)");
-  db.run("INSERT INTO users (username, password, isBanned, isAdmin) VALUES ('bannedGuy', '1111', 1, 0)");
+  // Make a sample comment.
+  db.run("INSERT INTO comments (comment_content, username) VALUES ('Wow! I'm the first to comment.', 'cjhughes255')");
 });
