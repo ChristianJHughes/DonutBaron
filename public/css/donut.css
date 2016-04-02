@@ -452,3 +452,7 @@ footer .footer-below {
     display: none;
     opacity: 0;
 }
+.col-centered{
+float: none;
+margin: 0 auto;
+}
