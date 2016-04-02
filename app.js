@@ -3,10 +3,10 @@ var express = require('express'),
 
 // Enable template engine
 app.set('view engine', 'ejs');
-    
+
 // Serve static files
-app.use(express.static('public'));    
-    
+app.use(express.static('public'));
+
 app.get('/', function(req, res) {
     res.render('index');
 });
@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 app.get('/login', function(req, res) {
     res.render('login');
 });
-    
-app.listen(80, () => {
-    console.log('Listening on port 80...');
+
+app.listen(8080, () => {
+    console.log('Listening on port 8080...');
 });
