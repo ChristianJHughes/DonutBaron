@@ -36,10 +36,15 @@ db.serialize(function() {
   // time_stamp INTEGER -- The time that the comment was posted. Format TBD.
   db.run("CREATE TABLE comments (commentID INTEGER PRIMARY KEY, comment_content TEXT, username TEXT, time_stamp INTEGER, isAdmin INTEGER)");
 
-  // Add two sample posts.
-  db.run("INSERT INTO pages (page_name, main_content_markdown) VALUES ('CIS 526 Information', 'CIS 526 is the *greatest class that has ever been taught*.')");
-  db.run("INSERT INTO pages (page_name, main_content_markdown) VALUES ('Dogs', '**Dogs are the best.** Do you have a dog? Well you should. All hail the glow cloud.')");
-  // Give each of those sample posts two comments.
+  // Add three sample users.
+  db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
+       + "VALUES ('Christian Hughes', '9139081592', 'cjhughes255@ksu.edu', 'cjhughes255', 'password1', 'KSU', '10', '100', '0', '1', '1')");
+  db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
+      + "VALUES ('Adam Seiwert', '6208754366', 'seiwerta@ksu.edu', 'seiwerta', 'password2', 'KSU', '7', '70', '0', '0', '1')");
+  db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
+      + "VALUES ('Austin Fangman', '9139081592', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '2', '20', '1', '0', '1')");
+
+       // Give each of those sample posts two comments.
   db.run("INSERT INTO comments (comment, associated_page) VALUES ('LOL this wiki is incredible!', 1)");
   db.run("INSERT INTO comments (comment, associated_page) VALUES ('This wiki is terrible, it needs major edits!', 1)");
   db.run("INSERT INTO comments (comment, associated_page) VALUES ('Who wrote this garbage?', 2)");
