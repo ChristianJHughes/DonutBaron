@@ -7,9 +7,6 @@ app.set('view engine', 'ejs');
 // Serve static files
 app.use(express.static('public'));
 
-app.get('/', function(req, res) {
-    res.render('index');
-});
 
 // Wiki Get Routes routes
 var homepage = require('./endpoints/homepage.js');
