@@ -31,6 +31,8 @@ $('.navbar-collapse ul li a').click(function() {
 
 $(function() {
     $('#rating').raty({
-        path: 'img/rateIcons'
+        path: 'img/rateIcons',
+        starOff: 'circle.png',
+        starOn: 'donut.png'
     });
 });
