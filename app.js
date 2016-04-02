@@ -11,6 +11,11 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
+// Wiki Get Routes routes
+var homepage = require('./endpoints/homepage.js');
+app.get('/index', homepage.getDonutBaron);
+app.get('/', homepage.getDonutBaron);
+
 //Delete this later, just here for testing currently
 app.get('/login', function(req, res) {
     res.render('login');
