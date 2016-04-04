@@ -498,7 +498,7 @@ margin: 0 auto;
   border-color: #161f29;
 }
 
-.switch6 {  max-width: 17em;  margin: 0 auto; border:1px solid #FFFFFF;}
+.switch6 {  max-width: 17em;  margin: 0 auto;}
 .switch6-light > span, .switch-toggle > span {  color: #FFFFFF; }
 .switch6-light span span, .switch6-light label, .switch-toggle span span, .switch-toggle label {  color: #FFFFFF; }
 
