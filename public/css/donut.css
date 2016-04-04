@@ -521,3 +521,8 @@ margin: 0 auto;
 .switch6-light > span span { position: absolute; top: 0px; left: 0px; z-index: 5; display: block; width: 50%; margin-left: 100px; text-align: center; }
 .switch6-light > span span:last-child { left: 50%; }
 .switch6-light a { position: absolute; right: 50%; top: 0px; z-index: 4; display: block; width: 50%; height: 100%; padding: 0px; }
+
+.row-pad
+{
+    padding-top: 30px;
+}    
