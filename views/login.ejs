@@ -21,16 +21,45 @@
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <div class="jumbotron">
-        <h1>The Donut Baron</h1>
-        <p>Welcome to the Donut Baron website!  Here we provide you with the foremost donut organizing engine, so that you can probably do something cool... I don't know right now, I have to push this so that Christian can work on authentication.  To Be Continued...
-        </p>
+    <div class="jumbotron col-lg-12 col-centered">
+        <h1 class="text-center">The Donut Baron</h1>
+        <p class="col-lg-9 col-centered text-center">Welcome to the Donut Baron website!  Here we provide you with the foremost <strong>donut organizing engine</strong>.  This website will automagically generate a <strong>donut list</strong> that contains all of your organization's users that have registered.  There is also a <strong>rating system</strong> so that you can scorn Janice in Accounting when she brings in moldy gas station donuts.  This is the world's best (possibly only, but don't take this away from us!) fully automated donut day arranger.<br>
+        <div class="container text-center">
+            <button type="button" class="btn btn-info btn-centered" data-toggle="collapse" data-target="#demo">Definitely Real User Comments</button>
+            <div id="demo" class="collapse col-centered">
+                <br>                
+                "It's an awesome website." - Steve Harvey<br>
+                "I've never seen a more spectacular site." - Thomas Jefferson<br>
+                "I've made a mistake.  This website is actually Miss Universe." - Steve Harvey<br>
+                "Oh yeah babyyyyyyy!" - Dunkey<br>
+                "ADRIANNNNNNN!" - Rocky (He didn't really know what we asked him.)<br>
+                "Worst website ever.  Build a wall around it." - Donald Trump<br>
+                "Best flavor text on a login page I've ever seen." - Tim Berners Lee<br>
+                "It's right here! ARGHHHHHHHHH!" - Adam Seiwert<br>
+                "I wish Healthcare.gov was this good..." - Barack Obama<br>
+                "I don't want to be quoted." -Christian Hughes<br>
+                "Mmmmmm... Donuts." -Homer Simpson<br>
+                "Great webs-"
+                "Imma let you finish, but Beyoncé made one of the best websites of all time!" -Kanye West<br>
+                "This is getting out of hand." -Me<br>
+                "One does not simply walk into Mordor." -Boromir<br>
+                "That last one doesn't even have to do with the website." -Me<br>
+                "Everybody look at me! I'm not famous anymore!" -Shia LaBeouf<br>
+                *Sigh* -Me<br>
+                "Hey, this is Justin Beiber." -Justin Beiber<br>
+                "Shut it down! NOW!" -Me
+            </div>
+        </div>
+        </p>   
     </div>
-    <div class = "container col-lg-4 col-centered background-color-red">
+    <div class = "container col-lg-4 col-centered">
         <div class="wrapper">
             <form action="" method="post" name="Login_Form" class="form-signin">
                 <h3 class="form-signin-heading text-center">Welcome Back!</h3>
@@ -43,8 +72,9 @@
                   <%= message %>
                   <% } %>
                 <br>
-                <button class="btn btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>
-                <br>Not on the Donut List?<br><a href="/register">Register Here!</a>
+                <button class="btn btn-secondary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
+                <hr class="colorgraph">
+                Not on the Donut List?<br><a href="/register">Register Here!</a>
             </form>
         </div>
     </div>

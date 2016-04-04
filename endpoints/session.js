@@ -13,7 +13,7 @@ class Session {
 
   // Creates a new session, provided the username and password match one in the database,
   // If not, renders the login form with an error message.
-  create(req, res, next) {
+  create(req, res) {
     req.session.reset();
     var form = new formidable.IncomingForm();
     form.parse(req, (err, fields, files) => {
@@ -29,10 +29,39 @@ class Session {
     });
   }
 
+  viewRegister(req, res) {
+    res.render('register', {message: ""});
+  }
+
+  // Handle registering a new user.
+  register(req, res) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, (err, fields, files) => {
+      if(err) return res.sendStatus(500);
+      db.run("INSERT INTO users (username_text, real_name, organization, email_address, phone_number, password) values (?,?,?,?,?,?)",
+            fields.Username,
+            fields.first_name + " " + fields.last_name,
+            fields.organization_name,
+            fields.email,
+            fields.phone,
+            fields.Password,
+            (err, user) => {
+        // Send an error if the user can't be registered.
+        if(err) return res.render('register', {message: "Error attempting to register. Please try again."});
+        // Create a session for the newly registered user.
+        db.get("SELECT * FROM users WHERE username_text = ?", fields.Username, (err, user) => {
+          req.session.user_id = user.userID;
+          req.user = user;
+          return res.redirect('/');
+        });
+      });
+    });
+  }
+
   // Ends a user session by flushing the session cookie. Renders the login page, and passes through an empty message.
   destroy(req, res) {
     req.session.reset();
-    res.redirect('login');
+    return res.redirect('login');
   }
 
 }
