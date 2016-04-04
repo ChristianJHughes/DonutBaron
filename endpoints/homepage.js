@@ -4,7 +4,7 @@ var db = require('../db');
 
 // A controller for the equipment resource
 // This should have methods for all the RESTful actions
-class Donut_Data {
+class Homepage {
 
   // index(req, res) {
   //   var pages = db.all('SELECT * FROM pages', function(err, pages) {
@@ -133,4 +133,4 @@ class Donut_Data {
   // }
 };
 
-module.exports = exports = new Donut_Data();
+module.exports = exports = new Homepage();
