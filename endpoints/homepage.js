@@ -30,7 +30,7 @@ class Donut_Data {
           console.error(err);
           return res.sendStatus(500);
         };
-        res.render('index', { donutBaron: donutBaron, upcomingUsers: upcomingUsers } );
+        res.render('index', { donutBaron: donutBaron, upcomingUsers: upcomingUsers, user: req.user } );
       });
     });
   }
