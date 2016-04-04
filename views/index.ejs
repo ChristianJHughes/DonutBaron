@@ -21,7 +21,7 @@
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    
+
     <!-- raty components -->
     <link rel="stylesheet" href="/css/jquery.raty.css"
 
@@ -62,11 +62,11 @@
                         <!-- <a href="#user" style="border: 1px dashed white; color: grey;">Logout, <%= donutBaron.real_name %></a> -->
                         <div class="dropdown">
                           <button class="btn btn-default dropdown-toggle" style="padding-top: 17px; padding-bottom: 17px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Hello, <%= donutBaron.real_name %>
+                            Hello, <%= user.real_name %>
                             <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="/logout">Logout</a></li>
                           </ul>
                         </div>
                     </li>
@@ -230,10 +230,10 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/donut.js"></script>
-    
+
     <!-- raty js -->
     <script src="/js/jquery.raty.js"></script>
-    
+
 </body>
 
 </html>
