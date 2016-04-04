@@ -29,6 +29,7 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
+// Initializes the dount rating section
 $(function() {
     $('#rating').raty({
         path: 'img/rateIcons',
@@ -37,3 +38,20 @@ $(function() {
         canel: true
     });
 });
+
+// Initializes the comment section
+$(function() {
+  $('#comments-container').comments({
+    getComments: function(success, error) {
+        var commentsArray = [{
+            id: 1,
+            created: '2015-10-01',
+            content: 'Lorem ipsum dolort sit amet',
+            fullname: 'Simon Powell',
+            upvote_count: 2,
+            user_has_upvoted: false
+        }];
+        success(commentsArray);
+        }
+    });  
+})
