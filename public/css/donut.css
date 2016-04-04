@@ -123,7 +123,7 @@ header .intro-text .name {
         -moz-transition: all .3s;
         transition: all .3s;
     }
-    
+
     .navbar-fixed-top .navbar-brand-center {
         font-size: 2em;
         -webkit-transition: all .3s;
@@ -502,14 +502,14 @@ margin: 0 auto;
 .switch6-light > span, .switch-toggle > span {  color: #FFFFFF; }
 .switch6-light span span, .switch6-light label, .switch-toggle span span, .switch-toggle label {  color: #FFFFFF; }
 
-.switch-toggle a, 
+.switch-toggle a,
 .switch6-light span span { display: none; }
 
 .switch6-light { display: block; height: 30px; position: relative; overflow: visible; padding: 0px; margin-left:0px; }
 .switch6-light * { box-sizing: border-box; }
 .switch6-light a { display: block; transition: all 0.3s ease-out 0s; }
 
-.switch6-light label, 
+.switch6-light label,
 .switch6-light > span { line-height: 30px; vertical-align: middle;}
 
 .switch6-light label {font-weight: 700; margin-bottom: px; max-width: 100%;}
@@ -525,4 +525,4 @@ margin: 0 auto;
 .row-pad
 {
     padding-top: 30px;
-}    
+}

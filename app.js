@@ -27,11 +27,12 @@ var login = require('./endpoints/session.js');
 app.get('/login', login.new);
 app.post('/login', login.create);
 app.get('/logout', login.destroy);
+app.post('/register', login.register);
+app.get('/register', login.viewRegister);
 
-//Delete this later, just here for testing currently
-app.get('/register', function(req, res) {
-    res.render('register');
-});
+// Add a route to the rankings page.
+var rankings = require('./endpoints/rankings.js')
+app.get('/rankings', rankings.getRankingsData)
 
 app.listen(8080, () => {
     console.log('Listening on port 8080...');
