@@ -27,11 +27,8 @@ var login = require('./endpoints/session.js');
 app.get('/login', login.new);
 app.post('/login', login.create);
 app.get('/logout', login.destroy);
-
-//Delete this later, just here for testing currently
-app.get('/register', function(req, res) {
-    res.render('register');
-});
+app.post('/register', login.register);
+app.get('/register', login.viewRegister);
 
 app.listen(8080, () => {
     console.log('Listening on port 8080...');
