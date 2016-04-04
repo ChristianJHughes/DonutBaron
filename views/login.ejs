@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>The Donut Baron</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -24,41 +24,25 @@
 
 </head>
 
-<body id="page-top" class="index">
-
-    <section class = "bg-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Login</h2>
-                    <hr class="light">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Please sign in</h3>
-                            </div>
-                            <div class="panel-body">
-                                <form accept-charset="UTF-8" role="form">
-                                    <fieldset>
-                                        <div class="form-group">
-                                            <input class="form-control" placeholder="E-mail" name="email" type="text" id="email">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" placeholder="Password" name="password" type="password" id="password" value="">
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input name="remember" type="checkbox" value="Remember Me"> Remember Me
-                                            </label>
-                                        </div>
-                                        <input class="btn btn-lg btn-success btn-block" value="Login" id="submitButton" onclick="CheckLogin(email.value, password.value)">
-                                        </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                </div>
-            </div>
-    </section>
-
+<body>
+    <div class="jumbotron">
+        <h1>The Donut Baron</h1>
+        <p>Welcome to the Donut Baron website!  Here we provide you with the foremost donut organizing engine, so that you can probably do something cool... I don't know right now, I have to push this so that Christian can work on authentication.  To Be Continued...
+        </p>   
+    </div>
+    <div class = "container col-lg-4 col-centered background-color-red">
+        <div class="wrapper">
+            <form action="" method="post" name="Login_Form" class="form-signin">       
+                <h3 class="form-signin-heading text-center">Welcome Back!</h3>
+                <hr class="colorgraph">
+                
+                <input type="text" class="form-control" name="Username" placeholder="Username" required="" autofocus="" />
+                
+                <input type="password" class="form-control" name="Password" placeholder="Password" required=""/>     		  
+                <br>
+                <button class="btn btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
+                <br>Not on the Donut List?<br><a href="/register">Register Here!</a>
+            </form>			
+        </div>
+    </div>
 </body>
-
-</html>
