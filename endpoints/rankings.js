@@ -7,17 +7,14 @@ var db = require('../db');
 class Rankings {
 
   getRankingsData(req, res) {
-    res.render('rankings', {donutBaron: { real_name: "car"}, user: {username: "Big Car"}});
     db.all('SELECT * FROM users', function(err, users) {
       if (err) {
         console.error(err);
         return res.sendStatus(500);
       }
-        res.render('rankings', { users: users, user: req.user } );
+        res.render('rankings', { users: users, user: req.user });
       });
-    });
   }
 };
-}
 
 module.exports = exports = new Rankings();
