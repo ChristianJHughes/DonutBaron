@@ -8,20 +8,15 @@ class Rankings {
 
   getRankingsData(req, res) {
     res.render('rankings', {donutBaron: { real_name: "car"}, user: {username: "Big Car"}});
-  //   db.get('SELECT * FROM users WHERE is_donut_baron=?', 1, function(err, donutBaron) {
-  //     if (err) {
-  //       console.error(err);
-  //       return res.sendStatus(500);
-  //     }
-  //     db.all('SELECT * FROM upcomingList', function(err, upcomingUsers) {
-  //       if (err) {
-  //         console.error(err);
-  //         return res.sendStatus(500);
-  //       };
-  //       res.render('index', { donutBaron: donutBaron, upcomingUsers: upcomingUsers, user: req.user } );
-  //     });
-  //   });
-  // }
+    db.all('SELECT * FROM users', function(err, users) {
+      if (err) {
+        console.error(err);
+        return res.sendStatus(500);
+      }
+        res.render('rankings', { users: users, user: req.user } );
+      });
+    });
+  }
 };
 }
 
