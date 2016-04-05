@@ -40,9 +40,9 @@ db.serialize(function() {
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
        + "VALUES ('Christian Hughes', '9139081592', 'cjhughes255@ksu.edu', 'cjhughes255', 'password1', 'KSU', '5', '100', '0', '1', '1')");
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
-      + "VALUES ('Adam Seiwert', '6208754366', 'seiwerta@ksu.edu', 'seiwerta', 'password2', 'KSU', '3', '70', '0', '0', '1')");
+      + "VALUES ('Adam Seiwert', '6208754366', 'seiwerta@ksu.edu', 'seiwerta', 'password2', 'KSU', '1', '20', '0', '0', '1')");
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
-      + "VALUES ('Austin Fangman', '8163510409', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '1', '20', '1', '0', '1')");
+      + "VALUES ('Austin Fangman', '8163510409', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '3', '70', '1', '0', '1')");
 
   // Insert the users into the users list.
   db.run("INSERT INTO upcomingList (date, userID, real_name) VALUES ('2016-04-09', 2, 'Adam Seiwert')");
