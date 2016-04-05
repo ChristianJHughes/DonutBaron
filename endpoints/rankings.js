@@ -13,9 +13,8 @@ class Rankings {
         return res.sendStatus(500);
       }
       users.sort(function(a, b){
-        return (a.donut_quality_rating * a.donut_reliability_rating) - (b.donut_quality_rating * b.donut_reliability_rating);
+        return (b.donut_quality_rating * b.donut_reliability_rating) - (a.donut_quality_rating * a.donut_reliability_rating);
       });
-
         res.render('rankings', { users: users, user: req.user });
       });
   }
