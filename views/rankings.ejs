@@ -43,14 +43,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">The Donut Baron</a>
+                <a class="navbar-brand" href="/#page-top">The Donut Baron</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                        <a href="/#page-top"></a>
                     </li>
                     <li class="page-scroll">
                         <a href="/#list">Upcoming</a>
@@ -62,7 +62,7 @@
                         <a href="/#comments">Comments</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/rankings">Rankings</a>
+                        <a href="#Top">Rankings</a>
                     </li>
                     <li class="page-scroll">
                         <div class="dropdown">
@@ -82,11 +82,9 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <!-- Rank Section -->
-    <section id="rankings">
     <!-- Header -->
-    <header>
-        <div class="container">
+    <header class="container-rank">
+        <div class="container" id="Top">
             <div class="row">
                 <div class="col-lg-12">
                     <img class="img-responsive" src="img/profile.png" alt="">
@@ -100,7 +98,7 @@
     </header>
 
     <!-- List Section -->
-    <section id="list">
+    <section id="RankingList">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -113,17 +111,19 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Rank</th>
+                                <th>Overall Rank</th>
                                 <th>Name</th>
-                                <th>Reliability</th>
-                                <th>Donut Score</th>
+                                <th>Donut Reliabilty Rating</th>
+                                <th>Donut Quality Rating</th>
                             </tr>
                         </thead>
                         <tbody>
+                          <% var i = 1 %>
                           <% users.forEach(function(user) { %>
                             <tr>
                             <th>
-                                1
+                                <%= i %>
+                                <% i++ %>
                             </th>
                             <td>
                                 <%= user.real_name %>
