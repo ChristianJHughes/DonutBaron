@@ -21,6 +21,18 @@ class Homepage {
       });
     });
   }
+  
+  getComments(req, res) {
+      db.all('SELECT * FROM comments', function(err, commentsArray) {
+          if(err) {
+              console.error(err);
+              return res.sendStatus(500);
+          };
+          res.send(commentsArray);
+      });
+  }
+  
+  
 };
 
 module.exports = exports = new Homepage();

@@ -34,7 +34,13 @@ db.serialize(function() {
   // comment_content TEXT -- The actual textual content of each comment.
   // username TEXT - The username of the user that made the comment.
   // time_stamp INTEGER -- The time that the comment was posted. Format TBD.
-  db.run("CREATE TABLE comments (commentID INTEGER PRIMARY KEY, comment_content TEXT, username TEXT, time_stamp INTEGER)");
+  db.run("CREATE TABLE comments (id INTEGER PRIMARY KEY, content TEXT, fullname TEXT, created TEXT, upvote_count INTEGER, user_has_upvoted INTEGER)");
+
+  // Add a sample comment
+  db.run("INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted)"
+          + "VALUES ('WATCH OUT WATCH OUT WATCH OUT... for this test comment', 'John Cena', '2016-9-4', 20, 0)");
+    db.run("INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted)"
+          + "VALUES ('Dear asdf, I hope this works. Sincerely, asdf', 'The ASDF', '2016-9-4', 3, 1)");
 
   // Add three sample users.
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
@@ -47,7 +53,4 @@ db.serialize(function() {
   // Insert the users into the users list.
   db.run("INSERT INTO upcomingList (date, userID, real_name) VALUES ('2016-04-09', 2, 'Adam Seiwert')");
   db.run("INSERT INTO upcomingList (date, userID, real_name) VALUES ('2016-04-16', 3, 'Austin Fangman')");
-
-  // Make a sample comment.
-  db.run("INSERT INTO comments (comment_content, username) VALUES ('A sample comment', 'cjhughes255')");
 });
