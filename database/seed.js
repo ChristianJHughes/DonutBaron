@@ -44,9 +44,26 @@ db.serialize(function() {
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
       + "VALUES ('Austin Fangman', '8163510409', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '3', '70', '1', '0', '1')");
 
-  // Insert the users into the users list.
-  db.run("INSERT INTO upcomingList (date, userID, real_name) VALUES ('2016-04-09', 2, 'Adam Seiwert')");
-  db.run("INSERT INTO upcomingList (date, userID, real_name) VALUES ('2016-04-16', 3, 'Austin Fangman')");
+  // Add all the users to the upcomingList Table.
+  var date = new Date();
+  for (var i = 1; i <= 30; i++)
+  {
+    date.setDate(date.getDate() + 7);
+    db.run("INSERT INTO upcomingList (date, userID) VALUES (?,?)", date.toISOString().slice(0, 10), -1);
+  }
+
+  db.all("SELECT * FROM users", function(err, users)
+  {
+    var i = 1;
+    users.forEach(function(user)
+    {
+      if (user.is_donut_baron != 1)
+      {
+        db.run("UPDATE upcomingList SET userID = ?, real_name = ? WHERE listID = ?", user.userID, user.real_name, i);
+        i++;
+      }
+    });
+  });
 
   // Make a sample comment.
   db.run("INSERT INTO comments (comment_content, username) VALUES ('A sample comment', 'cjhughes255')");

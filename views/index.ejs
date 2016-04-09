@@ -117,15 +117,16 @@
                         </thead>
                         <tbody> <!-- Dynamically this section -->
                           <% upcomingUsers.forEach(function(user) { %>
+                            <% if (user.userID != -1) { %>
                             <tr>
                               <td>
-                            <%= user.real_name %>
+                                  <%= user.real_name %>
                             </td>
                             <td>
                               <%= user.date %>
                             </td>
                             </tr>
-                          <% }); %>
+                          <% }}); %>
                         </tbody>
                     </table>
                 </div>
