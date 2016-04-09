@@ -22,7 +22,8 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!-- raty components -->    <link rel="stylesheet" href="/css/jquery.raty.css">
+    <!-- raty components -->
+    <link rel="stylesheet" href="/css/jquery.raty.css">
 
     <!-- Viima comments components -->
     <link rel="stylesheet" href="/css/jquery-comments.css" type="text/css">
@@ -42,14 +43,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">The Donut Baron</a>
+                <a class="navbar-brand" href="/#page-top">The Donut Baron</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                        <a href="/#page-top"></a>
                     </li>
                     <li class="page-scroll">
                         <a href="/#list">Upcoming</a>
@@ -61,10 +62,9 @@
                         <a href="/#comments">Comments</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/rankings">Rankings</a>
+                        <a href="#Top">Rankings</a>
                     </li>
                     <li class="page-scroll">
-                        <!-- <a href="#user" style="border: 1px dashed white; color: grey;">Logout, <%= donutBaron.real_name %></a> -->
                         <div class="dropdown">
                           <button class="btn btn-default dropdown-toggle" style="padding-top: 17px; padding-bottom: 17px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             Hello, <%= user.real_name %>
@@ -83,14 +83,14 @@
     </nav>
 
     <!-- Header -->
-    <header>
-        <div class="container">
+    <header class="container-rank">
+        <div class="container" id="Top">
             <div class="row">
                 <div class="col-lg-12">
                     <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
-                        <span class="name">This week's Donut Dollie Is:</span><br />
-                        <span class="name" style="color: black"><%= donutBaron.real_name %></span>
+                        <span class="name">The #1 Donut Dollie is:</span><br />
+                        <span class="name" style="color: black"><%= users[0].real_name %></span>
                     </div>
                 </div>
             </div>
@@ -98,86 +98,48 @@
     </header>
 
     <!-- List Section -->
-    <section id="list">
+    <section id="RankingList">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Upcoming Dollies</h2>
+                    <h2>User Rankings</h2>
                     <hr class="star-primary"> <!-- Should make a donut logo or something here -->
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-7 col-centered">
-                    <!-- <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover">
                         <thead>
                             <tr>
+                                <th>Overall Rank</th>
                                 <th>Name</th>
-                                <th>Date</th>
+                                <th>Donut Reliabilty Rating</th>
+                                <th>Donut Quality Rating</th>
                             </tr>
                         </thead>
                         <tbody>
-                          <% upcomingUsers.forEach(function(user) { %>
+                          <% var i = 1 %>
+                          <% users.forEach(function(user) { %>
                             <tr>
-                              <td>
-                            <%= user.real_name %>
+                            <th>
+                                <%= i %>
+                                <% i++ %>
+                            </th>
+                            <td>
+                                <%= user.real_name %>
                             </td>
                             <td>
-                              <%= user.date %>
+                                <%= user.donut_reliability_rating %>
+                            </td>
+                            <td>
+                                <%= user.donut_quality_rating %>
                             </td>
                             </tr>
                           <% }); %>
                         </tbody>
-                    </table> -->
+                    </table>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Rating Section -->
-    <section class="success" id="rate">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Rate</h2>
-                    <hr class="star-light"> <!-- Should make a donut logo or something here -->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-centered text-center">
-                    <form role="form" class="col-lg-12 col-centered">
-                    <h3>How were the donuts?</h3>
-                    <div id="rating"></div>
-                    <h3>Did they bring donuts?</h3>
-                        <div class="switch6">
-                            <label class="switch6-light" onclick="">
-                                    <input type="checkbox">
-                                    <span>
-                                        <span>Yes</span>
-                                        <span>No</span>
-                                    </span>
-                                    <a class="btn btn-primary"></a>
-                            </label>
-                        </div>
-                        <div class="row-pad col-lg-3 col-centered">
-                            <button class="btn btn-primary btn-block" id="ratingSubmit">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-    </section>
-
-    <!-- Comments -->
-    <section id="comments">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>Comments</h2>
-                <hr class="star-primary"> <!-- Should make a donut logo or something here -->
-            </div>
-        </div>
-        <div class="row">
-            <form role="form" class="col-lg-7 col-centered">
-                <div id="comments-container"></div>
-            </form>
         </div>
     </section>
 

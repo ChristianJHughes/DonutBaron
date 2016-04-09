@@ -13,7 +13,7 @@ db.serialize(function() {
   // username_text TEXT -- Username (can be independent of realname). Probably shouldn't contain spaces.
   // password TEXT -- Encrypted password as text.
   // organization TEXT -- Name of the organization that the user is a part of.
-  // donut_quality_rating REAL -- Quality of the donuts on a scale of 1 to 10 (floating point number).
+  // donut_quality_rating REAL -- Quality of the donuts on a scale of 1 to 5 (floating point number).
   // donut_reliability_rating REAL -- Reliability of the user, as a real number from 0 to 100 (expressed as a precentage).
   // has_rated_this_week INTEGER -- Bool, 0 if false or 1 if true. Has this user rated the donut baron for the week?
   // is_donut_baron INTEGER -- Bool, 0 if false or 1 if true. Has the user rated this week's donut baron?
@@ -38,11 +38,11 @@ db.serialize(function() {
 
   // Add three sample users.
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
-       + "VALUES ('Christian Hughes', '9139081592', 'cjhughes255@ksu.edu', 'cjhughes255', 'password1', 'KSU', '10', '100', '0', '1', '1')");
+       + "VALUES ('Christian Hughes', '9139081592', 'cjhughes255@ksu.edu', 'cjhughes255', 'password1', 'KSU', '5', '100', '0', '1', '1')");
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
-      + "VALUES ('Adam Seiwert', '6208754366', 'seiwerta@ksu.edu', 'seiwerta', 'password2', 'KSU', '7', '70', '0', '0', '1')");
+      + "VALUES ('Adam Seiwert', '6208754366', 'seiwerta@ksu.edu', 'seiwerta', 'password2', 'KSU', '1', '20', '0', '0', '1')");
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
-      + "VALUES ('Austin Fangman', '8163510409', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '2', '20', '1', '0', '1')");
+      + "VALUES ('Austin Fangman', '8163510409', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '3', '70', '1', '0', '1')");
 
   // Insert the users into the users list.
   db.run("INSERT INTO upcomingList (date, userID, real_name) VALUES ('2016-04-09', 2, 'Adam Seiwert')");
