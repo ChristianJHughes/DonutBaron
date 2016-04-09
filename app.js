@@ -21,6 +21,7 @@ app.use(sessions({
 var homepage = require('./endpoints/homepage.js');
 app.get('/index', loadUser, homepage.getHomepageData);
 app.get('/', loadUser, homepage.getHomepageData);
+app.post('/index/rate', homepage.RateDonuts);
 
 // Add routes for the login page. Should create an active session if sucsessful.
 var login = require('./endpoints/session.js');

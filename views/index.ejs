@@ -144,24 +144,29 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 col-centered text-center">
-                    <form role="form" class="col-lg-12 col-centered">
+                    <% if (user.has_rated_this_week == 1){ %>
+                    Thanks for voting this week!
+                    <% } else {%>
+                    <form role="form" method="post" action="/index/rate" class="col-lg-12 col-centered">
                     <h3>How were the donuts?</h3>
                     <div id="rating"></div>
                     <h3>Did they bring donuts?</h3>
-                        <div class="switch6">
-                            <label class="switch6-light" onclick="">
-                                    <input type="checkbox">
-                                    <span>
-                                        <span>Yes</span>
-                                        <span>No</span>
-                                    </span>
-                                    <a class="btn btn-primary"></a>
-                            </label>
-                        </div>
+                        <div class="col-lg-6 col-centered">
+                            <div class="btn-group btn-toggle"> 
+                            <button class="btn btn-lg btn-tertiary">Yes</button>
+                            <button class="btn btn-lg btn-tertiary active">No</button>
+                            </div>
+                            <!-- <input name="radio" type='hidden' value="Yes"/>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <button type="button" class="btn btn-tertiary active" data-radio-name="radio1">Yes</button>
+                                    <button type="button" class="btn btn-tertiary" data-radio-name="radio">No</button>
+                                </div>
+                            </div> -->
                         <div class="row-pad col-lg-3 col-centered col-md-3 col-sm-3">
-                            <button class="btn btn-primary btn-block" id="ratingSubmit">Submit</button>
+                            <input type="submit" value="RateDonuts" class="btn btn-primary btn-block" id="ratingSubmit">
                         </div>
                     </form>
+                    <% } %>
                 </div>
             </div>
     </section>
