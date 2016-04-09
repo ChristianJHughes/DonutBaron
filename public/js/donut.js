@@ -51,6 +51,18 @@ $(function() {
                 },
                 error: error
             });
+        },
+        postComment: function(commentJSON, success, error) {
+            console.log(commentJSON);
+            $.ajax({
+                type: 'post',
+                url: '/comments/add',
+                data: commentJSON,
+                success: function(comment) {
+                    success(comment)
+                },
+                error: error
+            });
         }
     }); 
 })

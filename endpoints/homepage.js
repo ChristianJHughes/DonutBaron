@@ -32,6 +32,15 @@ class Homepage {
       });
   }
   
+  addComment(req, res) {
+    db.run('INSERT into comments (content, fullname, created, upvote_count, user_has_upvoted) value(?,?,?,?,?)',
+        req.body.data.content,
+        "",
+        "",
+        "",
+        ""
+    ); 
+  }
   
 };
 
