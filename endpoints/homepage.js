@@ -22,26 +22,26 @@ class Homepage {
     });
   }
   
-  getComments(req, res) {
-      db.all('SELECT * FROM comments', function(err, commentsArray) {
-          if(err) {
-              console.error(err);
-              return res.sendStatus(500);
-          };
-          res.send(commentsArray);
-      });
-  }
+    getComments(req, res) {
+        db.all('SELECT * FROM comments', function(err, commentsArray) {
+            if(err) {
+                console.error(err);
+                return res.sendStatus(500);
+            }
+            res.send(commentsArray);
+        });
+    }
   
-  addComment(req, res) {
-    db.run('INSERT into comments (content, fullname, created, upvote_count, user_has_upvoted) value(?,?,?,?,?)',
-        req.body.data.content,
-        "",
-        "",
-        "",
-        ""
+    addComment(req, res) {
+        db.run('INSERT into comments (content, fullname, created, upvote_count, user_has_upvoted) value(?,?,?,?,?)',
+            req.body.data.content,
+            "",
+            "",
+            "",
+            ""
     ); 
-  }
+    }
   
-};
+}
 
 module.exports = exports = new Homepage();
