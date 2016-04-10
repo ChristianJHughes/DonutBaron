@@ -66,7 +66,7 @@
                     <li class="page-scroll">
                         <!-- <a href="#user" style="border: 1px dashed white; color: grey;">Logout, <%= donutBaron.real_name %></a> -->
                         <div class="dropdown">
-                          <button class="btn btn-default dropdown-toggle" style="padding-top: 17px; padding-bottom: 17px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                          <button id="currentUser" value='<%= user.real_name %>' class="btn btn-default dropdown-toggle" style="padding-top: 17px; padding-bottom: 17px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             Hello, <%= user.real_name %>
                             <span class="caret"></span>
                           </button>

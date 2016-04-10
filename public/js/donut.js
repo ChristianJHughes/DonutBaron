@@ -53,11 +53,10 @@ $(function() {
             });
         },
         postComment: function(commentJSON, success, error) {
-            console.log(commentJSON);
             $.ajax({
                 type: 'post',
                 url: '/comments/add',
-                data: commentJSON,
+                data: {comment : commentJSON, currentUser: document.getElementById("currentUser").value,},
                 success: function(comment) {
                     success(comment)
                 },
