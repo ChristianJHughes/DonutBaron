@@ -1,7 +1,6 @@
 "use strict"
 
 var db = require('../db');
-var formidable = require('formidable');
 
 // A controller for the equipment resource
 // This should have methods for all the RESTful actions
@@ -49,6 +48,28 @@ class Homepage {
     });
     res.render('index')
   }
-};
+  
+    getComments(req, res) {
+        db.all('SELECT * FROM comments', function(err, commentsArray) {
+            if(err) {
+                console.error(err);
+                return res.sendStatus(500);
+            }
+            res.send(commentsArray);
+        });
+    }
+  
+    addComment(req, res) {
+        db.run('INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted) values (?,?,?,?,?)',
+            req.body.comment.content,
+            req.body.currentUser,
+            req.body.comment.created.substring(0,10),
+            parseInt(req.body.comment.upvote_count),
+            req.body.comment.user_has_upvoted == 'true' ? 1 : 0
+        );
+        res.send(req.body.comment); 
+    }
+  
+}
 
 module.exports = exports = new Homepage();
