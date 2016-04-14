@@ -33,12 +33,12 @@ class Homepage {
     }
   
     addComment(req, res) {
-        db.run('INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted) value(?,?,?,?,?)',
+        db.run('INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted) values (?,?,?,?,?)',
             req.body.comment.content,
             req.body.currentUser,
-            (req.body.comment.created.substring(0.10)),
+            req.body.comment.created.substring(0,10),
             parseInt(req.body.comment.upvote_count),
-            (req.body.comment.user_has_upvoted == 'true' ? 1 : 0)
+            req.body.comment.user_has_upvoted == 'true' ? 1 : 0
         );
         res.send(req.body.comment); 
     }
