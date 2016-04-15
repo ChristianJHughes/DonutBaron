@@ -37,10 +37,10 @@ db.serialize(function() {
   db.run("CREATE TABLE comments (id INTEGER PRIMARY KEY, content TEXT, fullname TEXT, created TEXT, upvote_count INTEGER, user_has_upvoted INTEGER)");
 
   // Add a sample comment
-  db.run("INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted)"
-          + "VALUES ('WATCH OUT WATCH OUT WATCH OUT... for this test comment', 'John Cena', '2016-9-4', 20, 0)");
-    db.run("INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted)"
-          + "VALUES ('Dear asdf, I hope this works. Sincerely, asdf', 'The ASDF', '2016-9-4', 3, 1)");
+  //db.run("INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted)"
+   //       + "VALUES ('WATCH OUT WATCH OUT WATCH OUT... for this test comment', 'John Cena', '2016-9-4', 20, 0)");
+  //  db.run("INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted)"
+  //        + "VALUES ('Dear asdf, I hope this works. Sincerely, asdf', 'The ASDF', '2016-9-4', 3, 1)");
 
   // Add three sample users.
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, number_of_ratings, is_donut_baron, is_admin)"
