@@ -46,7 +46,7 @@ class Homepage {
             console.error(err);
             return res.sendStatus(500);
           };
-          res.redirect("/");
+          res.redirect("/#rate");
         });
       });
   }

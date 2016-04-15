@@ -37,7 +37,7 @@ class Session {
   register(req, res) {
     //var form = new formidable.IncomingForm();
     //form.parse(req, (err, fields, files) => {
-      if(err) return res.sendStatus(500);
+      //if(err) return res.sendStatus(500);
       db.run("INSERT INTO users (username_text, real_name, organization, email_address, phone_number, password, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin) values (?,?,?,?,?,?,?,?,?,?,?)",
             req.body.Username,
             req.body.first_name + " " + req.body.last_name,
