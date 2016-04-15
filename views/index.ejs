@@ -64,7 +64,7 @@
                         <a href="/rankings#Top">Rankings</a>
                     </li>
                     <li class="page-scroll">
-                        <!-- <a href="#user" style="border: 1px dashed white; color: grey;">Logout, <%= donutBaron.real_name %></a> -->
+                        
                         <div class="dropdown">
                           <button id="currentUser" value='<%= user.real_name %>' class="btn btn-default dropdown-toggle" style="padding-top: 17px; padding-bottom: 17px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             Hello, <%= user.real_name %>
@@ -153,7 +153,7 @@
                     <h3>Did they bring donuts?</h3>
                         <div class="switch6">
                             <label class="switch6-light" onclick="">
-                                <input type="checkbox">
+                                <input name="delivered" type="checkbox" id="delivered" checked=true value="no">
                                     <span>
                                         <span>Yes</span>
                                         <span>No</span>

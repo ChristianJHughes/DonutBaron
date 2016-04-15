@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 var homepage = require('./endpoints/homepage.js');
 app.get('/index', loadUser, homepage.getHomepageData);
 app.get('/', loadUser, homepage.getHomepageData);
-app.post('/index/rate', homepage.RateDonuts);
+app.post('/index/rate', loadUser, homepage.RateDonuts);
 app.get('/comments', homepage.getComments);
 app.post('/comments/add', homepage.addComment);
 
