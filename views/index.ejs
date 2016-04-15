@@ -64,9 +64,9 @@
                         <a href="/rankings#Top">Rankings</a>
                     </li>
                     <li class="page-scroll">
-                        <!-- <a href="#user" style="border: 1px dashed white; color: grey;">Logout, <%= donutBaron.real_name %></a> -->
+                        
                         <div class="dropdown">
-                          <button class="btn btn-default dropdown-toggle" style="padding-top: 17px; padding-bottom: 17px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                          <button id="currentUser" value='<%= user.real_name %>' class="btn btn-default dropdown-toggle" style="padding-top: 17px; padding-bottom: 17px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             Hello, <%= user.real_name %>
                             <span class="caret"></span>
                           </button>
@@ -145,13 +145,16 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 col-centered text-center">
-                    <form role="form" class="col-lg-12 col-centered">
+                    <% if (user.has_rated_this_week == 1){ %>
+                    Thanks for voting this week!
+                    <% } else {%>
+                    <form role="form" method="post" action="/index/rate" class="col-lg-12 col-centered">
                     <h3>How were the donuts?</h3>
                     <div id="rating"></div>
                     <h3>Did they bring donuts?</h3>
                         <div class="switch6">
                             <label class="switch6-light" onclick="">
-                                    <input type="checkbox">
+                                <input name="delivered" type="checkbox" id="delivered" checked=true value="no">
                                     <span>
                                         <span>Yes</span>
                                         <span>No</span>
@@ -160,9 +163,10 @@
                             </label>
                         </div>
                         <div class="row-pad col-lg-3 col-centered col-md-3 col-sm-3">
-                            <button class="btn btn-primary btn-block" id="ratingSubmit">Submit</button>
+                            <input type="submit" value="RateDonuts" class="btn btn-primary btn-block" id="ratingSubmit">
                         </div>
                     </form>
+                    <% } %>
                 </div>
             </div>
     </section>

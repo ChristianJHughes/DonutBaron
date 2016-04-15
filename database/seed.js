@@ -18,7 +18,7 @@ db.serialize(function() {
   // has_rated_this_week INTEGER -- Bool, 0 if false or 1 if true. Has this user rated the donut baron for the week?
   // is_donut_baron INTEGER -- Bool, 0 if false or 1 if true. Has the user rated this week's donut baron?
   // is_admin INTEGER) -- Bool, 0 if false or 1 if true. Is the user an admin?
-  db.run("CREATE TABLE users (userID INTEGER PRIMARY KEY, real_name TEXT, phone_number TEXT, email_address TEXT, username_text TEXT, password TEXT, organization TEXT, donut_quality_rating REAL, donut_reliability_rating REAL, has_rated_this_week INTEGER, is_donut_baron INTEGER, is_admin INTEGER)");
+  db.run("CREATE TABLE users (userID INTEGER PRIMARY KEY, real_name TEXT, phone_number TEXT, email_address TEXT, username_text TEXT, password TEXT, organization TEXT, donut_quality_rating REAL, donut_reliability_rating REAL, has_rated_this_week INTEGER, number_of_ratings INTEGER, is_donut_baron INTEGER, is_admin INTEGER)");
 
   // Create the userList table. It Holds a chronooglical list of users, with the dates in which they will become the donut baron.
   //
@@ -34,15 +34,21 @@ db.serialize(function() {
   // comment_content TEXT -- The actual textual content of each comment.
   // username TEXT - The username of the user that made the comment.
   // time_stamp INTEGER -- The time that the comment was posted. Format TBD.
-  db.run("CREATE TABLE comments (commentID INTEGER PRIMARY KEY, comment_content TEXT, username TEXT, time_stamp INTEGER)");
+  db.run("CREATE TABLE comments (id INTEGER PRIMARY KEY, content TEXT, fullname TEXT, created TEXT, upvote_count INTEGER, user_has_upvoted INTEGER)");
+
+  // Add a sample comment
+  db.run("INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted)"
+          + "VALUES ('WATCH OUT WATCH OUT WATCH OUT... for this test comment', 'John Cena', '2016-9-4', 20, 0)");
+    db.run("INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted)"
+          + "VALUES ('Dear asdf, I hope this works. Sincerely, asdf', 'The ASDF', '2016-9-4', 3, 1)");
 
   // Add three sample users.
-  db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
-       + "VALUES ('Christian Hughes', '9139081592', 'cjhughes255@ksu.edu', 'cjhughes255', 'password1', 'KSU', '5', '100', '0', '1', '1')");
-  db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
-      + "VALUES ('Adam Seiwert', '6208754366', 'seiwerta@ksu.edu', 'seiwerta', 'password2', 'KSU', '1', '20', '0', '0', '1')");
-  db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin)"
-      + "VALUES ('Austin Fangman', '8163510409', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '3', '70', '1', '0', '1')");
+  db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, number_of_ratings, is_donut_baron, is_admin)"
+       + "VALUES ('Christian Hughes', '9139081592', 'cjhughes255@ksu.edu', 'cjhughes255', 'password1', 'KSU', '5', '100', '0', '1', '1', '1')");
+  db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, number_of_ratings, is_donut_baron, is_admin)"
+      + "VALUES ('Adam Seiwert', '6208754366', 'seiwerta@ksu.edu', 'seiwerta', 'password2', 'KSU', '1', '20', '0', '2', '0', '1')");
+  db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, number_of_ratings, is_donut_baron, is_admin)"
+      + "VALUES ('Austin Fangman', '8163510409', 'apfangman@ksu.edu', 'apfangman', 'password3', 'KSU', '3', '70', '0', '1', '0', '1')");
 
   // Add all the users to the upcomingList Table.
   var date = new Date();
@@ -64,7 +70,4 @@ db.serialize(function() {
       }
     });
   });
-
-  // Make a sample comment.
-  db.run("INSERT INTO comments (comment_content, username) VALUES ('A sample comment', 'cjhughes255')");
 });

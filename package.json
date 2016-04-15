@@ -4,6 +4,7 @@
   "description": "Website that keeps track of donut usage by donut users.",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.15.0",
     "client-sessions": "^0.7.0",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
