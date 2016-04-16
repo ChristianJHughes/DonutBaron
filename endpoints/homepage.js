@@ -37,8 +37,8 @@ class Homepage {
           return res.sendStatus(500);
         }
         db.run("UPDATE users SET donut_quality_rating=?, donut_reliability_rating=?, number_of_ratings=? WHERE userID=?",
-          Math.floor((donutBaron.donut_quality_rating + parseInt(req.body.score))/(2) * 100 / 100),
-          Math.floor((donutBaron.donut_reliability_rating + reliability)/(2) * 100 / 100),
+          Math.round(((donutBaron.donut_quality_rating + parseInt(req.body.score))/2) * 10) / 10,
+          Math.floor(donutBaron.donut_reliability_rating + reliability)/(2),
           donutBaron.number_of_ratings + 1,
           donutBaron.userID);
         db.all('SELECT * FROM upcomingList', function(err, upcomingUsers) {
