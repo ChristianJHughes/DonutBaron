@@ -80,10 +80,10 @@
             },
 
             // Functionalities
-            enableReplying: true,
-            enableEditing: true,
-            enableUpvoting: true,
-            enableDeleting: true,
+            enableReplying: false,
+            enableEditing: false,
+            enableUpvoting: false,
+            enableDeleting: false,
             enableAttachments: false,
             enableDeletingCommentWithReplies: false,
             enableNavigation: true,
