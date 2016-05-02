@@ -2,10 +2,10 @@
 
 var db = require('../db');
 
-// A controller for the equipment resource
-// This should have methods for all the RESTful actions
+// The Rankings endpoint contains all of the functions pertinent to the "Rankings" webpage.
 class Rankings {
 
+  // Gets all user on the donut lists, calculates their donut scores, and renders the "Rankings" page.
   getRankingsData(req, res) {
     db.all('SELECT * FROM users', function(err, users) {
       if (err) {
