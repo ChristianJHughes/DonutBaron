@@ -36,12 +36,6 @@ db.serialize(function() {
   // time_stamp INTEGER -- The time that the comment was posted. Format TBD.
   db.run("CREATE TABLE comments (id INTEGER PRIMARY KEY, content TEXT, fullname TEXT, created TEXT)");
 
-  // Add a sample comment
-  //db.run("INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted)"
-   //       + "VALUES ('WATCH OUT WATCH OUT WATCH OUT... for this test comment', 'John Cena', '2016-9-4', 20, 0)");
-  //  db.run("INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted)"
-  //        + "VALUES ('Dear asdf, I hope this works. Sincerely, asdf', 'The ASDF', '2016-9-4', 3, 1)");
-
   // Add three sample users.
   db.run("INSERT INTO users (real_name, phone_number, email_address, username_text, password, organization, donut_quality_rating, donut_reliability_rating, has_rated_this_week, number_of_ratings, is_donut_baron, is_admin)"
        + "VALUES ('Christian Hughes', '9139081592', 'cjhughes255@ksu.edu', 'cjhughes255', 'password1', 'KSU', '5', '100', '0', '1', '1', '1')");
@@ -52,7 +46,7 @@ db.serialize(function() {
 
   // Add all the users to the upcomingList Table.
   var date = new Date();
-  for (var i = 1; i <= 30; i++)
+  for (var i = 1; i <= 500; i++)
   {
     date.setDate(date.getDate() + 7);
     db.run("INSERT INTO upcomingList (date, userID) VALUES (?,?)", date.toISOString().slice(0, 10), -1);
@@ -60,6 +54,11 @@ db.serialize(function() {
 
   db.all("SELECT * FROM users", function(err, users)
   {
+    if (err) {
+      console.error(err);
+      return res.sendStatus(500);
+    }
+
     var i = 1;
     users.forEach(function(user)
     {
