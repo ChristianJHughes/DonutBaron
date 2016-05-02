@@ -43,7 +43,7 @@ class Homepage {
         }
         db.run("UPDATE users SET donut_quality_rating=?, donut_reliability_rating=?, number_of_ratings=? WHERE userID=?",
           //The current rating is multiplied by the number of ratings, then the new rating is added, then everything is divided by the previous number of ratings + 1. 
-          Math.round((((donutBaron.donut_quality_rating * donutBaron.number_of_ratings) + parseInt(req.body.score))/donutBaron.number_of_ratings + 1) * 10) / 10,
+          Math.round(((donutBaron.donut_quality_rating * donutBaron.number_of_ratings) + parseInt(req.body.score))/(donutBaron.number_of_ratings + 1) * 10) / 10,
           //Same as quality, but for reliability.
           Math.floor((donutBaron.donut_reliability_rating * donutBaron.number_of_ratings) + reliability)/(donutBaron.number_of_ratings + 1),
           donutBaron.number_of_ratings + 1,
