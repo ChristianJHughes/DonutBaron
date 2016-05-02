@@ -4,7 +4,7 @@ var db = require('../db');
 
 // The Homepage endpoint contains all of the functions pertinent to the Donut Baron Homepage.
 class Homepage {
-
+  //Gets and renders the data needed for the homepage
   // Gets the current donut dollie (ignore variable name), and a list of all upcoming donut dollies. Then renders the homepage.
   getHomepageData(req, res) {
     db.get('SELECT * FROM users WHERE is_donut_baron=?', 1, function(err, donutBaron) {
@@ -25,8 +25,8 @@ class Homepage {
       });
     });
   }
-
-  // Takes care of the donut rating logic, and stores donut ratings in the database.
+  
+  //Updates the database when a user rates the current donut baron.
   RateDonuts(req, res) {
     var reliability = 0;
     if (typeof req.body.delivered == "undefined") {
@@ -42,8 +42,10 @@ class Homepage {
           return res.sendStatus(500);
         }
         db.run("UPDATE users SET donut_quality_rating=?, donut_reliability_rating=?, number_of_ratings=? WHERE userID=?",
-          Math.round(((donutBaron.donut_quality_rating + parseInt(req.body.score)) / 2) * 10) / 10,
-          Math.floor(donutBaron.donut_reliability_rating + reliability) / (2),
+          //The current rating is multiplied by the number of ratings, then the new rating is added, then everything is divided by the previous number of ratings + 1. 
+          Math.round((((donutBaron.donut_quality_rating * donutBaron.number_of_ratings) + parseInt(req.body.score))/donutBaron.number_of_ratings + 1) * 10) / 10,
+          //Same as quality, but for reliability.
+          Math.floor((donutBaron.donut_reliability_rating * donutBaron.number_of_ratings) + reliability)/(donutBaron.number_of_ratings + 1),
           donutBaron.number_of_ratings + 1,
           donutBaron.userID);
         db.all('SELECT * FROM upcomingList', function(err, upcomingUsers) {
