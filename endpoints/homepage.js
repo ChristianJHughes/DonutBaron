@@ -62,16 +62,11 @@ class Homepage {
     }
   
     addComment(req, res) {
-        db.run('INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted) values (?,?,?,?,?)',
+        db.run('INSERT INTO comments (content, fullname, created) values (?,?,?)',
             req.body.comment.content,
             req.body.currentUser,
-            req.body.comment.created,
-            parseInt(req.body.comment.upvote_count),
-            req.body.comment.user_has_upvoted == 'true' ? 1 : 0
+            req.body.comment.created
         );
-        //Need to convert string values back to their original types.
-        req.body.comment.user_has_upvoted = (req.body.comment.user_has_upvoted == 'true' ? true : false);
-        req.body.comment.upvote_count = parseInt(req.body.comment.upvote_count);
         req.body.comment.created_by_current_user = (req.body.comment.created_by_current_user == 'true' ? true : false);
         res.send(req.body.comment); 
     }

@@ -34,7 +34,7 @@ db.serialize(function() {
   // comment_content TEXT -- The actual textual content of each comment.
   // username TEXT - The username of the user that made the comment.
   // time_stamp INTEGER -- The time that the comment was posted. Format TBD.
-  db.run("CREATE TABLE comments (id INTEGER PRIMARY KEY, content TEXT, fullname TEXT, created TEXT, upvote_count INTEGER, user_has_upvoted INTEGER)");
+  db.run("CREATE TABLE comments (id INTEGER PRIMARY KEY, content TEXT, fullname TEXT, created TEXT)");
 
   // Add a sample comment
   //db.run("INSERT INTO comments (content, fullname, created, upvote_count, user_has_upvoted)"
