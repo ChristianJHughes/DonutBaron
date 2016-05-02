@@ -35,7 +35,7 @@ $(function() {
         path: 'img/rateIcons',
         starOff: 'circle.png',
         starOn: 'donut.png',
-        canel: true
+        score:1
     });
 });
 
@@ -64,4 +64,29 @@ $(function() {
             });
         }
     }); 
-})
+});
+
+/*$('.btn[data-radio-name]').click(function() {
+    $('.btn[data-radio-name="'+$(a).data('radioName')+'"]').addClass('active');
+    $('.btn[data-radio-name="'+$(this).data('radioName')+'"]').addClass('active');
+    $('input[name="'+$(this).data('radioName')+'"]').val(
+        $(this).text()
+    );
+});*/
+
+$('.btn-toggle').click(function() {
+    $(this).find('.btn').toggleClass('active');  
+    
+    if ($(this).find('.btn-primary').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-primary');
+    }
+    if ($(this).find('.btn-danger').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-danger');
+    }
+    if ($(this).find('.btn-success').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-success');
+    }
+    if ($(this).find('.btn-info').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-info');
+    }
+});
