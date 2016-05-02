@@ -3,10 +3,10 @@
 var db = require('../db'),
     formidable = require('formidable');
 
-// An endpoint for logging in and out users
+// The Session endpoint is in charge of creating user sessions, and rendering the login/register pages.
 class Session {
 
-  // Renders a login form with no error message
+  // Renders a login form with no error message.
   new(req, res) {
     res.render('login', {message: ""});
   }
@@ -15,9 +15,6 @@ class Session {
   // If not, renders the login form with an error message.
   create(req, res) {
     req.session.reset();
-    //var form = new formidable.IncomingForm();
-    //form.parse(req, (err, fields, files) => {
-      //if(err) return res.sendStatus(500);
       db.get("SELECT * FROM users WHERE username_text = ?", req.body.Username, (err, user) => {
         if(err) return res.render('login', {message: "Username/Password not found.  Please try again."});
         if(!user) return res.render('login', {message: "Username/Password not found.  Please try again."});
@@ -26,18 +23,15 @@ class Session {
         req.user = user;
         return res.redirect('/');
       });
-    //});
   }
 
+  // Renders the "Register" page with no error message.
   viewRegister(req, res) {
     res.render('register', {message: ""});
   }
 
-  // Handle registering a new user.
+  // Registers a new user and adds them to the database. Donut Scores, Rating booleans, and admin privledges all default to 0.
   register(req, res) {
-    //var form = new formidable.IncomingForm();
-    //form.parse(req, (err, fields, files) => {
-      //if(err) return res.sendStatus(500);
       db.run("INSERT INTO users (username_text, real_name, organization, email_address, phone_number, password, donut_quality_rating, donut_reliability_rating, has_rated_this_week, is_donut_baron, is_admin) values (?,?,?,?,?,?,?,?,?,?,?)",
             req.body.Username,
             req.body.first_name + " " + req.body.last_name,
@@ -73,7 +67,6 @@ class Session {
           return res.redirect('/');
         });
       });
-    //});
   }
 
   // Ends a user session by flushing the session cookie. Renders the login page, and passes through an empty message.

@@ -3,8 +3,8 @@
 var db = require('../db.js')
 
 // This middleware loads the user (if logged in) and assigns
-// their information to the request.user property.
-// If no user is signed, in, a Guest user is created for them.
+// their information to the req.user property.
+// If not signed in, redirect to the login page.
 function loadUser(req, res, next) {
   if (req.session && req.session.user_id) {
     db.get("SELECT * FROM users WHERE userID = ?", req.session.user_id, (err, user) => {

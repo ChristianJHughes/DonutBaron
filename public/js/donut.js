@@ -40,6 +40,7 @@ $(function() {
 });
 
 // Get all the current comments.
+// Using Viima comment library: https://github.com/Viima/jquery-comments
 $(function() {
     $('#comments-container').comments({
         getComments: function(success, error) {
@@ -62,7 +63,7 @@ $(function() {
                 },
                 error: error
             });
-        }
+        },
     }); 
 });
 
