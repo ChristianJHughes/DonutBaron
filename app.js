@@ -64,8 +64,16 @@ new CronJob('00 00 12 * * 0-6', function() {
 
       // Create a new date, and set it to the current date.
       var date = new Date();
-      date.setDate(date.getDate());
+      date.setDate(date.getDate() + 1);
 
+      // AUSTIN PUT YOUR EMAIL CODE HERE
+      if (row.date == date.toISOString().slice(0, 10))
+      {
+        console.log("I sent the upcoming donut baron an email!");
+        // Add emailing code below...
+      }
+      
+      date.setDate(date.getDate());
       // compare the current date with the next date in the table. If they match, then it's time to switch up the donut baron.
       if (row.date == date.toISOString().slice(0, 10))
       {
