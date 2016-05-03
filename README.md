@@ -34,20 +34,20 @@ node app.js
 ```
 The server operates on port 8080 by default (customizable in *app.js*).
 
-### Feature Breakdown:
+### *Feature Breakdown*:
 #### User Account Creation/Authentication:
 New users can easily register to join the Donut List. Only registered users can log in and view the site.
 
-#### Automatic Donut List Management:
+#### *Automatic Donut List Management*:
 The Donut List is automatically updated every week, so that all involved know exactly who is responsible for bringing the donuts.
 
-#### Advanced Donut Ranking System:
+#### *Advanced Donut Ranking System*:
 Crazy mathematical algorithms rank the donut list members. Bring the best donuts, and make it to the top.
 
-#### Email Notifications:
+#### *Email Notifications*:
 Email reminders are automatically sent to the upcoming "Donut Dollie."
 
-#### Weekly Comments Section:
+#### *Weekly Comments Section*:
 The comments section is host to weeks' hot donut gossip.
 
 ---
