@@ -1,17 +1,17 @@
 # The Donut Baron
 
-<b>Donuts are a breakfast staple in the American office workplace. It is in everyone’s best interest to consume the best donuts possible as often as possible. The answer? Donut distribution through software.</b>
+<b>The Donut Baron gets gets donuts in the hands of you and your coworkers.</b>
 
 "Donut Day" is a joyous weekly holiday in which the "Donut Dollie" brings donuts for the office; the "Donut Dollie" changes each week, as do the types of donuts available.
 
 We've created an open donut web platform (ODWP) with the following features:
 
--The flexibility to allow any organization to organize and maintain their own “Donut Day.”
+    -The flexibility to allow any organization to organize and maintain their own “Donut Day.”
 
--A clear schedule for upcoming donut days, as well as who is responsible for bringing the donuts
+    -A clear schedule for upcoming donut days, as well as who is responsible for bringing the donuts
 each week.
 
--A ratings system that allows users to vote on the reliability of each “Donut Dollie,” and the
+    -A ratings system that allows users to vote on the reliability of each “Donut Dollie,” and the
 quality of their pastries.
 
 ### Installation and Configuration
