@@ -18,6 +18,8 @@ The website is implemented as a Node module suitable for publishing to npm.
 
 ![Ratings Screenshot](http://i.imgur.com/urimYPF.png "Ratings Screenshot")
 
+---
+
 ### Installation and Configuration
 Download and unzip the complete "DonutBaron" directory. Run `node database/seed.js` to create a sample donut database. View sample content with **username:** cjhughes255 **password:** password1.
 
@@ -32,7 +34,6 @@ node app.js
 ```
 The server operates on port 8080 by default (customizable in *app.js*).
 
----
 ### Feature Breakdown
 ##### User Account Creation/Authentication
 New users can easily register to join the Donut List. Only registered users can log in and view the site.
