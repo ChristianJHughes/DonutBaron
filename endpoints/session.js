@@ -1,7 +1,7 @@
 "use strict"
 
 var db = require('../db'),
-  formidable = require('formidable');
+  
 
 // The Session endpoint is in charge of creating user sessions, and rendering the login/register pages.
 class Session {
