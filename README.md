@@ -34,8 +34,8 @@ node app.js
 ```
 The server operates on port 8080 by default (customizable in *app.js*).
 
-### *Feature Breakdown*:
-#### User Account Creation/Authentication:
+### Feature Breakdow*:
+#### *User Account Creation/Authentication*:
 New users can easily register to join the Donut List. Only registered users can log in and view the site.
 
 #### *Automatic Donut List Management*:
