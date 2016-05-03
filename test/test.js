@@ -16,16 +16,14 @@ after(function(done) {
 
 // Top­level application tests
 describe('app tests', function() {
-    it('App should exist', function() {
-        assert.ok(app);
-    });
-
     it('Should be listening at localhost:8080', function(done) {
         http.get('http://localhost:8080', function(res) {
-            assert.equal(res.statusCode, 404);
+            assert.equal(res.statusCode, 302);
             done();
         });
     });
+    
+    
 });
 
 
