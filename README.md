@@ -1,16 +1,16 @@
 # The Donut Baron
 
-Donuts are a breakfast staple in the American office workplace. It is in everyone’s best interest to consume the best donuts possible as often as possible. The answer? Donut distribution through software.
+<b>Donuts are a breakfast staple in the American office workplace. It is in everyone’s best interest to consume the best donuts possible as often as possible. The answer? Donut distribution through software.</b>
 
-Local engineering firm GE Aviation has a weekly “Donut Day,” in which the “Donut Dollie” brings donuts for the office; the “Donut Dollie” changes each week, as do the types of donuts that are available. While largely successful, this system has two major problems:
-1. The “Donut Dollie” will forget to bring donuts.
-2. The “Donut Dollie” will bring low quality donuts, and subsequently attract the scorn of the
-entire staff.
+"Donut Day" is a joyous weekly holiday in which the "Donut Dollie" brings donuts for the office; the "Donut Dollie" changes each week, as do the types of donuts available.
 
-We set out to create an open donut web platform (ODWP) with the following features:
+We've created an open donut web platform (ODWP) with the following features:
+
 -The flexibility to allow any organization to organize and maintain their own “Donut Day.”
+
 -A clear schedule for upcoming donut days, as well as who is responsible for bringing the donuts
 each week.
+
 -A ratings system that allows users to vote on the reliability of each “Donut Dollie,” and the
 quality of their pastries.
 
