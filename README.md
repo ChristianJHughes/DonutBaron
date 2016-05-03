@@ -1,28 +1,30 @@
 # The Donut Baron
 
-<b>The Donut Baron gets gets donuts in the hands of you and your coworkers.</b>
+<b>The Donut Baron gets **MORE DONUTS** in the hands of you and your coworkers.</b>
 
 "Donut Day" is a joyous weekly holiday in which the "Donut Dollie" brings donuts for the office; the "Donut Dollie" changes each week, as do the types of donuts available.
 
-We've created an open donut web platform (ODWP) with the following features:
+**The Donut Baron** is an Open Donut Web Platform (ODWP) with the following features:
 
-    -The flexibility to allow any organization to organize and maintain their own “Donut Day.”
+- The flexibility to allow any organization to organize and maintain their own “Donut Day.”
 
-    -A clear schedule for upcoming donut days, as well as who is responsible for bringing the donuts
-each week.
+- A clear schedule for upcoming donut days, as well as who is responsible for bringing the donuts each week.
 
-    -A ratings system that allows users to vote on the reliability of each “Donut Dollie,” and the
-quality of their pastries.
+- A ratings system that allows users to vote on the reliability of each “Donut Dollie,” and the quality of their pastries.
 
 ### Installation and Configuration
-Download and unzip the complete "DonutBaron" directory. Sample blog posts are included -- if you are inclined to start with a clean database, simply run `node database/seed.js`.
+Download and unzip the complete "DonutBaron" directory. Run `node database/seed.js` to create a sample donut database. 
+
+To create a new database for your organization, modify *database/seed.js* to insert your initial users (in place of the 3 sample users provided).
+
+**Please note:** One user *must* have their `is_donut_baron` property set to `1` upon database creation.
 
 ### Running The Application
-Run the server using node. The entry point for the applica
+Run the server using node. The entry point for the application resides in the top level directory as *app.js*. Start the server by running:
 ```
 node app.js
 ```
-Navigate to port 8080 on the client-side to access the web content.
+The server operates on port 8080 by default.
 
 ### Application Usage
 *Index*:
