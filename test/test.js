@@ -1,20 +1,16 @@
-var app = require(__dirname + '/../app.js'),
-port = 8080,
-server,
-http = require('http'),
+var http = require('http'),
 assert = require('chai').assert;
+
+
 
 // Launch the web app before testing
 before(function(done) {
-    server = app.listen(port, function(err, result){
-        if(err) done(err);
-        else done();
-    });
+    require('../app.js');
+    done();
 });
 
 // Close the web app when testing is finished
 after(function(done) {
-    server.close();
     done();
 });
 
@@ -24,8 +20,8 @@ describe('app tests', function() {
         assert.ok(app);
     });
 
-    it('Should be listening at localhost:' + port, function(done) {
-        http.get('http://localhost:' + port, function(res) {
+    it('Should be listening at localhost:8080', function(done) {
+        http.get('http://localhost:8080', function(res) {
             assert.equal(res.statusCode, 404);
             done();
         });
