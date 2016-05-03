@@ -1,3 +1,6 @@
+// The MAIN entry point for the application. Launch by calling "node app.js" from the command line.
+
+
 var express = require('express'),
     app = express(),
     loadUser = require('./middleware/load_user.js'),
@@ -44,8 +47,7 @@ app.get('/register', login.viewRegister);
 var rankings = require('./endpoints/rankings.js');
 app.get('/rankings', loadUser, rankings.getRankingsData);
 
-
-
+// Launch the application on port 8080.
 app.listen(8080, () => {
     console.log('Listening on port 8080...');
 });

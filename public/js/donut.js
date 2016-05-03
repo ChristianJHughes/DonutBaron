@@ -64,20 +64,13 @@ $(function() {
                 error: error
             });
         },
-    }); 
+    });
 });
 
-/*$('.btn[data-radio-name]').click(function() {
-    $('.btn[data-radio-name="'+$(a).data('radioName')+'"]').addClass('active');
-    $('.btn[data-radio-name="'+$(this).data('radioName')+'"]').addClass('active');
-    $('input[name="'+$(this).data('radioName')+'"]').val(
-        $(this).text()
-    );
-});*/
 
 $('.btn-toggle').click(function() {
-    $(this).find('.btn').toggleClass('active');  
-    
+    $(this).find('.btn').toggleClass('active');
+
     if ($(this).find('.btn-primary').size()>0) {
     	$(this).find('.btn').toggleClass('btn-primary');
     }

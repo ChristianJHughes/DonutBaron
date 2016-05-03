@@ -64,7 +64,7 @@
                         <a href="/rankings#Top">Rankings</a>
                     </li>
                     <li class="page-scroll">
-                        
+
                         <div class="dropdown">
                           <button id="currentUser" value='<%= user.real_name %>' class="btn btn-default dropdown-toggle" style="padding-top: 17px; padding-bottom: 17px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             Hello, <%= user.real_name %>
@@ -147,6 +147,8 @@
                 <div class="col-lg-12 col-centered text-center">
                     <% if (user.has_rated_this_week == 1){ %>
                     Thanks for voting this week!
+                    <% } else if(user.is_donut_baron == 1) {%>
+                    You're the donut dollie, you can't rate yourself!
                     <% } else {%>
                     <form role="form" method="post" action="/index/rate" class="col-lg-12 col-centered">
                     <h3>How were the donuts?</h3>
@@ -219,7 +221,6 @@
 
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/donut.js"></script>
