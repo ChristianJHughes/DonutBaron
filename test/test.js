@@ -96,9 +96,5 @@ describe('static route tests', function() {
     it('jquery.comments.css is served', function(done) {
         testStaticFile(host + '/css/jquery-comments.css', './public/css/jquery-comments.css', done);
     });
-    
-    
-    
-    
 });
 
