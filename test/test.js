@@ -98,3 +98,17 @@ describe('static route tests', function() {
     });
 });
 
+
+// Tests login functionality
+describe('Tests Login functionality', function() {
+    describe('Verify that a valid user can login', function() {
+        it('Logging in with seiwerta', function(done) {
+            // ONE OF THE MANY THINGS I TRIED. STILL NOT SURE HOW TO GET THIS WORKING.
+            req.body.Username = 'seiwerta';
+            req.body.Password = 'password2';
+            app.login.create(req, this.res)    
+            assert.equal(req.url = '/');
+            done(); 
+        });
+    });
+});
