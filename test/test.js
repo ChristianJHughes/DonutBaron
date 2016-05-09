@@ -3,7 +3,7 @@ assert = require('chai').assert,
 app = require('../app.js'),
 host = 'http://localhost:8080',
 fs = require('fs'),
-request = require('request').defaults({jar:true});
+request = require('request').defaults({jar:true, followAllRedirects : true});
 
 
 
@@ -116,14 +116,13 @@ describe('User functionality tests', function() {
             if(error){
                 console.log(error);
             }
-            assert.equal(body,'Found. Redirecting to /');
-            assert.equal(res.statusCode, 302);
+            assert.include(body,'Adam Seiwert');
+            assert.equal(res.statusCode, 200);
             done(); 
         });
     });
     
     it('Rating the Donut Dollie', function(done) {
-        //console.log(request.getCookies(host));
         request({
             url : host + '/index/rate',
             method : 'POST',
