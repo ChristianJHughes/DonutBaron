@@ -2,7 +2,8 @@ var http = require('http'),
 assert = require('chai').assert,
 app = require('../app.js'),
 host = 'http://localhost:8080',
-fs = require('fs');
+fs = require('fs'),
+request = require('request');
 
 
 
@@ -103,12 +104,22 @@ describe('static route tests', function() {
 describe('Tests Login functionality', function() {
     describe('Verify that a valid user can login', function() {
         it('Logging in with seiwerta', function(done) {
-            // ONE OF THE MANY THINGS I TRIED. STILL NOT SURE HOW TO GET THIS WORKING.
-            req.body.Username = 'seiwerta';
-            req.body.Password = 'password2';
-            app.login.create(req, this.res)    
-            assert.equal(req.url = '/');
-            done(); 
+            request({
+                url : host + '/login',
+                method: 'POST',
+                form : {
+                    Username : 'seiwerta',
+                    Password : 'password2'
+                }
+            },
+            function(error, res, body) {
+                if(error){
+                    console.log(error);
+                }
+                assert.equal(body,'Found. Redirecting to /');
+                assert.equal(res.statusCode, 302);
+                done(); 
+            });
         });
     });
 });
