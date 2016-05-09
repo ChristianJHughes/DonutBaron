@@ -113,8 +113,9 @@ describe('User functionality tests', function() {
             }
         },
         function(error, res, body) {
-            if(error){
+            if(error) {
                 console.log(error);
+                return done(error);
             }
             assert.include(body,'Adam Seiwert');
             assert.equal(res.statusCode, 200);
@@ -132,10 +133,37 @@ describe('User functionality tests', function() {
             }
         },
         function(error, res, body) {
-            if(error) console.log(error);
+            if(error) {
+                console.log(error);
+                return done(error);
+            }
             assert.include(body, 'Thanks for voting this week!');
             assert.equal(res.statusCode, 200);
             done();
         })
     });
+    
+    it('Comment Creation test', function(done) {
+       request({
+           url : host + '/comments/add',
+           method : 'POST',
+           form : {
+               comment : {
+                    content : 'Hello this is a test',
+                    created : '2016-05-09T20:14:51.210Z'
+               },
+               currentUser : 'Adam Seiwert',
+           }
+       },
+       function(error,res,body) {
+           if(error) {
+                console.log(error);
+                return done(error);
+            }
+            assert.include(body, 'Hello this is a test');
+            assert.equal(res.statusCode, 200);
+            done();
+       }) 
+    });
+    
 });
