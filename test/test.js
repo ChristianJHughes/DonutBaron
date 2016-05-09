@@ -133,9 +133,8 @@ describe('User functionality tests', function() {
         },
         function(error, res, body) {
             if(error) console.log(error);
-            console.log(body);
-            assert.equal(body, 'asdf');
-            //assert.equal(res.statusCode, 302);
+            assert.include(body, 'Thanks for voting this week!');
+            assert.equal(res.statusCode, 200);
             done();
         })
     });
