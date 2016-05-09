@@ -155,7 +155,7 @@ describe('User functionality tests', function() {
                currentUser : 'Adam Seiwert',
            }
        },
-       function(error,res,body) {
+       function(error, res, body) {
            if(error) {
                 console.log(error);
                 return done(error);
@@ -165,5 +165,48 @@ describe('User functionality tests', function() {
             done();
        }) 
     });
+    
+    it('View Rankings page', function(done) {
+        request
+            .get(host + '/rankings')
+            .on('response',function(res) {
+                assert.equal(res.statusCode, 200);
+                done();
+            });
+    });
+    
+    it('Logout Functionality test', function(done) {
+        request
+            .get(host + '/logout')
+            .on('response', function(res) {
+                assert.equal(res.statusCode, 200);
+                done();
+            });
+    });
+    
+    it('Account Registration Test', function(done) {
+        request({
+            url : host + '/register',
+            method : 'POST',
+            form : {
+                Username : 'TheDonut',
+                first_name : 'Homer',
+                last_name : 'Simpson',
+                organization_name : 'PowerPlant',
+                email : 'donuteater@fake.com',
+                phone : '8675309',
+                password : 'asdf'
+            }
+        },
+        function(error, res, body) {
+            if(error) {
+                console.log(error);
+                return done(error);
+            }
+            assert.include(body, 'Homer Simpson');
+            assert.equal(res.statusCode, 200);
+            done();
+        });
+    })
     
 });
