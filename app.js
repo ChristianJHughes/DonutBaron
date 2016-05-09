@@ -120,3 +120,5 @@ new CronJob('00 00 12 * * 0-6', function() {
       db.run("DELETE FROM comments");
     });
 }, null, true);
+
+module.exports = exports = app;
