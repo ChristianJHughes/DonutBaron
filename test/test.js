@@ -6,12 +6,8 @@ fs = require('fs'),
 request = require('request').defaults({jar:true, followAllRedirects : true});
 
 
-
-
 // Launch the web app before testing
 before(function(done) {
-    //require('../app.js');
-    //done();
     server = app.listen(function(err, result) {
         if(err) done(err);
         else done();
