@@ -125,7 +125,7 @@ describe('User functionality tests', function() {
     it('Rating the Donut Dollie', function(done) {
         //console.log(request.getCookies(host));
         request({
-            url : host + 'index/rate',
+            url : host + '/index/rate',
             method : 'POST',
             form : {
                 //Leave delivered as undefined because controller expects this
