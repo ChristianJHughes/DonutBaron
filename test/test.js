@@ -3,7 +3,8 @@ assert = require('chai').assert,
 app = require('../app.js'),
 host = 'http://localhost:8080',
 fs = require('fs'),
-request = require('request');
+request = require('request').defaults({jar:true});
+
 
 
 
@@ -100,26 +101,43 @@ describe('static route tests', function() {
 });
 
 
-// Tests login functionality
-describe('Tests Login functionality', function() {
-    describe('Verify that a valid user can login', function() {
-        it('Logging in with seiwerta', function(done) {
-            request({
-                url : host + '/login',
-                method: 'POST',
-                form : {
-                    Username : 'seiwerta',
-                    Password : 'password2'
-                }
-            },
-            function(error, res, body) {
-                if(error){
-                    console.log(error);
-                }
-                assert.equal(body,'Found. Redirecting to /');
-                assert.equal(res.statusCode, 302);
-                done(); 
-            });
+// User functionality tests
+describe('User functionality tests', function() {
+    it('Logging in with seiwerta', function(done) {
+        request({
+            url : host + '/login',
+            method: 'POST',
+            form : {
+                Username : 'seiwerta',
+                Password : 'password2'
+            }
+        },
+        function(error, res, body) {
+            if(error){
+                console.log(error);
+            }
+            assert.equal(body,'Found. Redirecting to /');
+            assert.equal(res.statusCode, 302);
+            done(); 
         });
+    });
+    
+    it('Rating the Donut Dollie', function(done) {
+        //console.log(request.getCookies(host));
+        request({
+            url : host + 'index/rate',
+            method : 'POST',
+            form : {
+                //Leave delivered as undefined because controller expects this
+                score : '3'
+            }
+        },
+        function(error, res, body) {
+            if(error) console.log(error);
+            console.log(body);
+            assert.equal(body, 'asdf');
+            //assert.equal(res.statusCode, 302);
+            done();
+        })
     });
 });
