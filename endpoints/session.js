@@ -1,6 +1,6 @@
 "use strict"
 
-var db = require('../db'),
+var db = require('../db');
   
 
 // The Session endpoint is in charge of creating user sessions, and rendering the login/register pages.

@@ -1,9 +1,13 @@
 //Used tutorial on http://pcarion.com/2015/12/06/gmail-api-node/ to set up email using Gmail API 
+"use strict"
 var fs = require('fs');
 var googleAuth = require('googleapis/node_modules/google-auth-library');
 var google = require('googleapis');
 
-function getOAuth2Client(cb) {
+class Email
+{
+ //Gets authentication from Google to send an email
+getOAuth2Client(cb) {
     // Load client secrets
     fs.readFile('client_secret.json', function(err, data) {
       if (err) {
@@ -28,13 +32,14 @@ function getOAuth2Client(cb) {
     });
   }
   
-function sendSampleMail(auth, cb) {
+//Sends an email to the desired email address  
+sendSampleMail(auth, toEmail, cb) {
    var gmailClass = google.gmail('v1');
 
    var email_lines = [];
 
    email_lines.push('From: <thedonutbaron3@gmail.com>');
-   email_lines.push('To: thedonutbaron3@gmail.com');
+   email_lines.push('To: ' + toEmail);
    email_lines.push('Content-type: text/html;charset=iso-8859-1');
    email_lines.push('MIME-Version: 1.0');
    email_lines.push('Subject: Your Donut Day');
@@ -55,17 +60,6 @@ function sendSampleMail(auth, cb) {
      }
    }, cb);
  }
- 
-getOAuth2Client(function(err, oauth2Client) {
-    if (err) {
-      console.log('err:', err);
-    } else {
-      sendSampleMail(oauth2Client, function(err, results) {
-        if (err) {
-          console.log('err:', err);
-        } else {
-          console.log(results);
-        }
-      });
-    }
-  });
+}
+
+module.exports = exports = new Email();
